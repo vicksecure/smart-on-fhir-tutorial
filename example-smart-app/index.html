@@ -98,11 +98,41 @@
         tr:nth-child(odd) {
             background-color: lightblue;
         }
+        
+   /* Style tab links */
+        .tablink {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        // padding: 14px 16px;
+            font-size: 15px;
+            width: 50%;
+        }
+
+        .tablink:hover {
+            background-color: #777;
+        }
+        .tablink:hover {
+            background-color: #777;
+        }
+
+        /* Style the tab content (and add height:100% for full page content) */
+        .tabcontent {
+            color: black;
+            display: none;
+            padding: 20px 20px;
+        //height: 100%;
+        }
 
     </style>
 
 </head>
 <body>
+<button class="tablink" onclick="openPage('eAlerts', this, 'blue')" id="defaultOpen">eAlerts</button>
+<button class="tablink" onclick="openPage('GIC', this, 'blue')">GIC</button>
 <div id='errors'>
 </div>
 <div id="loading" class="spinner">
@@ -110,9 +140,8 @@
     <div class="bounce2"></div>
     <div class="bounce3"></div>
 </div>
-<h2>eAlerts</h2>
 <!-- START of custom code -->
-<div id="eAlerts">
+<div id="eAlerts" class="tabcontent">
     <div class="row">
         <div class="column">
             <h2>High-Risk Medication Message</h2>
@@ -306,7 +335,167 @@
         </div>
     </div>
 </div>
+<div id="GIC" class="tabcontent">
+    <p>
+    <h3 style="width: fit-content">Our goal is to provide all the important notifications, alerts and warnings to providers in one place to help improve patient care and outcomes.
+        Addressing gaps, alerts and warnings, help improving patient care, avoid delay in reimbursement, achieve higher scores, and less paper work for your staff.</h3>
+    </p>
+    <div class="row">
+        <div class="column" style="background-color:white">
+            <h5>Plan of Care:Quality Alerts</h5>
+            <h6 align="center">Symcore has identified that this patient may have the following quality gaps</h6>
+            <table border="true">
+                <tbody>
+                <col style="width:5%">
+                <col style="width:5%">
+                <col style="width:10%">
+                <col style="width:30%">
+                <col style="width:5%">
+                <col style="width:15%">
+                <col style="width:30%">
+                <tr>
+                    <th>S.no</th>
+                    <th>Measure Code</th>
+                    <th>Measure Name</th>
+                    <th>Measure Description</th>
+                    <th>Alert Type</th>
+                    <th>Alert Addressed</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>FSO</td>
+                    <td>Annual Flu shot</td>
+                    <td>Available claims data indicate the patient may not have had a influenza vaccination during the current flu session.</td>
+                    <td>Critical</td>
+                    <td>
+                        <div class="btn-group">
+                            <button>Yes</button>
+                            <button>No</button>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="90" rows="2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>HRM</td>
+                    <td>Generic High Risk Medication</td>
+                    <td>Certain medications (antihistamines, amphetamines, barbiturates, skeletal, muscle relaxants etc.) have been identified by the centers for Medicaid and Medicare as having
+                        high risks for side effects in elderly patients.</td>
+                    <td>High</td>
+                    <td>
+                        <div class="btn-group">
+                            <button>Yes</button>
+                            <button>No</button>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="90" rows="2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>IMH</td>
+                    <td>Improving or Maintaining Mental Health</td>
+                    <td>Available claims data indicate the patient may not have recently had discussion about their mental health.</td>
+                    <td>Low</td>
+                    <td>
+                        <div class="btn-group">
+                            <button>Yes</button>
+                            <button>No</button>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="90" rows="2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>MA-H</td>
+                    <td>Hypertension Medication Adherence</td>
+                    <td>Patient receiving medication for hypertension should take their medication at least 80% of the time.</td>
+                    <td>Moderate</td>
+                    <td>
+                        <div class="btn-group">
+                            <button>Yes</button>
+                            <button>No</button>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="90" rows="2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>MSC</td>
+                    <td>Medical assistance with Smoking and Tobacco use Cessation</td>
+                    <td>
+                        Patient, ages 18 years or older, who may be smoker or have used tobacco products in last 12 months, should receive
+                        medication assistance and/or counseling with smoking or tobacco cessation.
+                    </td>
+                    <td>Critical</td>
+                    <td>
+                        <div class="btn-group">
+                            <button>Yes</button>
+                            <button>No</button>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="90" rows="2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>MUI</td>
+                    <td>Improving bladder control</td>
+                    <td>Patient, ages 65 or older, who reported having urine leakage in the past 6 months, should have a discussion
+                        related to their urinary leakage problem and treatments options available.</td>
+                    <td>High</td>
+                    <td>
+                        <div class="btn-group">
+                            <button>Yes</button>
+                            <button>No</button>
+                        </div>
+                    </td>
+                    <td>
+                        <textarea name="" id="" cols="90" rows="2"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="7" style="background-color: white;">
+                        <div class="save-btn-group">
+                            <button>Save</button>
+                            <button>Cancel</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    function openPage(pageName,elmnt,color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
 
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+
+</script>
 <!-- end of custom code -->
 <!-- Required JS files to enable this page to embed within an MPage -->
 <!--
