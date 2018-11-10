@@ -3,121 +3,13 @@
   <head>
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    <title>eAlerts</title>
+    <title>Example-SMART-App</title>
 
     <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
     <!--
       Temporarily disable cerner-smart-embeddable-lib
       <link rel='stylesheet' type='text/css' href='./lib/css/cerner-smart-embeddable-lib-1.0.0.min.css'>
     -->
-   <style>
-        * {box-sizing: border-box}
-
-        /* Set height of body and the document to 100% */
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial;
-
-        }
-
-        /* Style tab links */
-        .tablink {
-            background-color: #555;
-            color: white;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-        // padding: 14px 16px;
-            font-size: 15px;
-            width: 33%;
-        }
-
-        .tablink:hover {
-            background-color: #777;
-        }
-
-
-
-        .btn-group button {
-            background-color: #4CAF50; /* Green background */
-            border: 1px solid green; /* Green border */
-            color: white; /* White text */
-            padding: 10px 24px; /* Some padding */
-            cursor: pointer; /* Pointer/hand icon */
-            float: left; /* Float the buttons side by side */
-        }
-        .save-btn-group button {
-            background-color: darkgrey;
-            border: 10px black; /* Green border */
-            color: white; /* White text */
-            padding: 10px 24px; /* Some padding */
-            cursor: pointer; /* Pointer/hand icon */
-            float: right; /* Float the buttons side by side */
-        }
-        /* Create two equal columns that floats next to each other */
-        .column {
-            float: left;
-            width: 50%;
-            padding: 10px;
-        //height: 700px; /* Should be removed. Only for demonstration */
-        }
-
-        /* Clear floats after the columns */
-        .row:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            width: 200%;
-            border: 1px solid #ddd;
-            margin: 5px;
-        }
-
-        th{
-            text-align: left;
-            padding: 2px;
-            color: black;
-            background-color: white;
-            width: auto;
-            font-size: small;
-        }
-        .row-scope{
-            text-align: left;
-            padding: 2px;
-            color: white;
-            background-color: lightblue;
-            font-size: small;
-        }
-        .continuity-care{
-            background-color: mediumpurple;
-            font-size: small;
-        }
-        td {
-            text-align: left;
-            padding: 2px;
-            font-size: small;
-            width: auto;
-        }
-
-        tr {
-            height: 10px;
-        }
-
-        tr:nth-child(even) {
-            background-color: orange;
-        }
-        tr:nth-child(odd) {
-            background-color: lightblue;
-        }
-
-    </style> 
-    
   </head>
   <body>
     <div id='errors'>
@@ -127,226 +19,29 @@
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
-      <h2>eAlerts</h2>
-          <!-- START of custom code -->
-    <div id="eAlerts" class="tabcontent">
-    <div class="row">
-        <div class="column" style="background-color:white">
-            <h2>High-Risk Medication Message</h2>
-            <div id='holder' >
-             <table width: 100%;>
-               <tbody>
-                <tr>
-                  <th>First Name:</th>
-                  <td id='fname'></td>
-                </tr>
-                <tr>
-                  <th>Last Name:</th>
-                  <td id='lname'></td>
-                </tr>
-               <tr>
-               <th>Gender:</th>
-                <td id='gender'></td>
-               </tr>
-               <tr>
-                 <th>Date of Birth:</th>
-                <td id='birthdate'></td>
-                </tr>
-                 </tbody>
-              </table>
-            </div>
-            <p style="font-size: small">
-                <b>Received 10/05/2018</b></br>
-                <img src="src/images/warningflag.png"/>
-                Payer XYZ records indicate this patient has been prescribed glyburide which is
-                considered to be a high risk medication in the elderly causing prolonged
-                hypoglycemia. Please consider prescribing a safer alternative to this medication, if
-                appropriate. Alternatives: glipizide, glimepiride.
-                <br/><br/> <b>Please respond:</b>
-                <br />Has the patient’s drug therapy been changed?
-            </p>
-            <div class="btn-group">
-                <button>Yes</button>
-                <button>No</button>
-            </div>
-            <div style="margin-top: 60px">
-                <textarea name="" id="risk-message-response" cols="40" rows="4"></textarea>
-            </div>
-        </div>
-        <div class="column" style="background:white">
-            <h2>Medical Adherence Profile</h2>
-            <div class="row">
-                <div class="column" style="background-color:white">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th colspan="2">
-                                <img src="src/images/warning-sign.png" />55%
-                                Hypertension </br>
-                                PDC as of 05/14/2018
-                            </th>
-                            <th> </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                Medication
-                            </th>
-                            <th>
-                                Filled
-                            </th>
-                            <th>
-                                Supply
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                amlodipine,5mg</br>
-                                NDC: 33342-015-10
-                            </td>
-                            <td tabindex="-1">
-                                01-Jan-18
-                            </td>
-                            <td>
-                                90 days
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                propranlol,60mg</br>
-                                NDC: 33342-015-20
-                            </td>
-                            <td tabindex="-1">
-                                02-Jan-16
-                            </td>
-                            <td>
-                                60 days
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th style="background-color:white" colspan="2">
-                                <img src="src/images/bell-warning.png" />67%
-                                Cholesterol </br>
-                                PDC as of 05/08/2018
-                            </th>
-                            <th> </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                Medication
-                            </th>
-                            <th>
-                                Filled
-                            </th>
-                            <th>
-                                Supply
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                colestid,2mg</br>
-                                NDC: 44442-015-10
-                            </td>
-                            <td>
-                                01-Mar-18
-                            </td>
-                            <td>
-                                30 days
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                niacin,1000mg</br>
-                                NDC: 44432-015-20
-                            </td>
-                            <td>
-                                02-Mar-18
-                            </td>
-                            <td>
-                                90 days
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <th style="background-color:white" colspan="2">
-                                <img src="src/images/check_mark.png" />91%
-                                Diabetes </br>
-                                PDC as of 05/19/2018
-                            </th>
-                            <th> </th>
-                        </tr>
-                        <tr>
-                            <th>
-                                Medication
-                            </th>
-                            <th>
-                                Filled
-                            </th>
-                            <th>
-                                Supply
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                Glynase PresTab,5mg</br>
-                                NDC: 33341-015-10
-                            </td>
-                            <td>
-                                01-Feb-18
-                            </td>
-                            <td>
-                                30 days
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Oseni,12.5mg</br>
-                                NDC: 33342-015-20
-                            </td>
-                            <td>
-                                02-Jan-16
-                            </td>
-                            <td>
-                                30 days
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-<div id='holder' >
-             <table>
-               <tbody>
-                <tr>
-                  <th>First Name:</th>
-                  <td id='fname'></td>
-                </tr>
-                <tr>
-                  <th>Last Name:</th>
-                  <td id='lname'></td>
-                </tr>
-               <tr>
-               <th>Gender:</th>
-                <td id='gender'></td>
-               </tr>
-               <tr>
-                 <th>Date of Birth:</th>
-                <td id='birthdate'></td>
-                </tr>
-                 </tbody>
-              </table>
-            </div>
-    </div>
-</div>
+    <div id='holder' >
+      <h2>e-SMART-App</h2>
 
-<!-- end of custom code -->
+      <h2>Patient Resource</h2>
+      <table>
+        <tr>
+          <th>First Name:</th>
+          <td id='fname'></td>
+        </tr>
+        <tr>
+          <th>Last Name:</th>
+          <td id='lname'></td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td id='gender'></td>
+        </tr>
+        <tr>
+          <th>Date of Birth:</th>
+          <td id='birthdate'></td>
+        </tr>
+      </table>
+    </div>
     <!-- Required JS files to enable this page to embed within an MPage -->
     <!--
       Temporarily disable cerner-smart-embeddable-lib
@@ -370,7 +65,6 @@
         function(p) {
           drawVisualization(p);
         },
-
         //Display 'Failed to call FHIR Service' if extractData failed
         function() {
           $('#loading').hide();
@@ -378,5 +72,51 @@
         }
       );
     </script>
+    <div id="eAlerts" class="tabcontent">
+    <div class="row">
+        <div class="column" style="background-color:white">
+            <h2>High-Risk Medication Message</h2>
+            <div id='holder' >
+                <table width: 100%;>
+                    <tbody>
+                    <tr>
+                        <th>First Name:</th>
+                        <td id='fname'></td>
+                    </tr>
+                    <tr>
+                        <th>Last Name:</th>
+                        <td id='lname'></td>
+                    </tr>
+                    <tr>
+                        <th>Gender:</th>
+                        <td id='gender'></td>
+                    </tr>
+                    <tr>
+                        <th>Date of Birth:</th>
+                        <td id='birthdate'></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size: small">
+                <b>Received 10/05/2018</b></br>
+                <img src="src/images/warningflag.png"/>
+                Payer XYZ records indicate this patient has been prescribed glyburide which is
+                considered to be a high risk medication in the elderly causing prolonged
+                hypoglycemia. Please consider prescribing a safer alternative to this medication, if
+                appropriate. Alternatives: glipizide, glimepiride.
+                <br/><br/> <b>Please respond:</b>
+                <br />Has the patient’s drug therapy been changed?
+            </p>
+            <div class="btn-group">
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+            <div style="margin-top: 60px">
+                <textarea name="" id="risk-message-response" cols="40" rows="4"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
   </body>
 </html>
